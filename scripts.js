@@ -3,6 +3,9 @@
 let i = 0;
 let playerPlay = prompt("Choose either rock, paper, or scissors").toLowerCase();
 const computerChoice = computerPlay();
+const push1 = document.getElementById("para");
+const push2 = document.getElementById("para2");
+const push3 = document.getElementById("para3");
 
 function computerPlay() {
   for (i = 0; i < Math.ceil(Math.random() * 3); i++){    
@@ -36,7 +39,7 @@ function playRound(computerChoice, playerPlay) {
   }
 }
 
-console.log("Computer choice: " + computerChoice);
-console.log("Player chooses: " + playerPlay);
-console.log(playRound(computerChoice, playerPlay));
+push1.innerHTML = ("Computer choice: " + computerChoice);
+push2.innerHTML = ("Player chooses: " + playerPlay);
+push3.innerHTML = (playRound(computerChoice, playerPlay));
 
