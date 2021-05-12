@@ -1,15 +1,15 @@
 "use strict";
 
 let i = 0;
-let playerPlay = prompt("Choose either rock, paper, or scissors").toLowerCase();
-const computerChoice = computerPlay();
-const push1 = document.getElementById("para");
-const push2 = document.getElementById("para2");
-const push3 = document.getElementById("para3");
 
+const computerChoice = computerPlay();
+
+
+// create function that will create a random return on computer answer using a for loop
 function computerPlay() {
-  for (i = 0; i < Math.ceil(Math.random() * 3); i++){    
-  }  
+  for (i = 0; i < Math.ceil(Math.random() * 3); i++){  
+
+  }
   if (i === 1) {
       return 'rock';
     } else if (i === 2) {
@@ -19,6 +19,8 @@ function computerPlay() {
     }
 }
 
+
+// Create function that will compare outcome between computer and player choice
 function playRound(computerChoice, playerPlay) {
   if (computerChoice == playerPlay){
     return "Its a tie!";
@@ -39,7 +41,5 @@ function playRound(computerChoice, playerPlay) {
   }
 }
 
-push1.innerHTML = ("Computer choice: " + computerChoice);
-push2.innerHTML = ("Player chooses: " + playerPlay);
-push3.innerHTML = (playRound(computerChoice, playerPlay));
+
 

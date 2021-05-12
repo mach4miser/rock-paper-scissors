@@ -1,5 +1,18 @@
 * {
-    margin: none;
-    padding: none;
-    background-color: aquamarine;
+    margin: 0;
+    padding: 0;
 }
+
+#container{
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;
+    align-items: center;
+}
+
+.container-items{
+    display: block;
+    margin: 3rem;
+    
+}
+
