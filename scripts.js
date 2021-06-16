@@ -11,7 +11,7 @@ const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 
 function computerPlay() {
-  for (i = 0; i < Math.ceil(Math.random() * 3); i++){    
+  for (i = 0; i < Math.floor(Math.random() * 3) + 1; i++){    
   }  
   if (i === 1) {
       return 'rock';
@@ -22,49 +22,42 @@ function computerPlay() {
     }
 }
 
-rock.addEventListener('click', function(e) {
+rock.addEventListener('click', function(computerChoice, playerPlay) {
   playerPlay = 'rock';
-  computerPlay();
-  playRound();
+  computerChoice = computerPlay();
+  playRound(computerChoice, playerPlay);
   winner.appendChild(content);
-  console.log(playRound());
-  console.log(computerPlay());
-  console.log(playerPlay);
   content.classList.add('content');
-  content.innerHTML = ("Computer choice: "+ computerPlay() + '<br />' +
-                       "Player choice: Rock " + '<br />' + playRound());
+  content.innerHTML = ("Computer choice: "+ computerChoice + '<br />' +
+                       "Player choice: Rock " + '<br />' + playRound(computerChoice, playerPlay));
   content.style.textAlign = 'center';  
 });
 
-paper.addEventListener('click', function(e) {
+paper.addEventListener('click', function(computerChoice, playerPlay) {
   playerPlay = 'paper';
-  computerPlay();
-  playRound();
-  console.log(playRound());
-  console.log(computerPlay());
-  console.log(playerPlay);
+  computerChoice = computerPlay();
+  playRound(computerChoice, playerPlay);
   winner.appendChild(content);
   content.classList.add('content');
-  content.innerHTML = ("Computer choice: "+ computerPlay() + '<br />' +
-                       "Player choice: Paper " + '<br />' + playRound());
-  content.style.textAlign = 'center';  
+  content.innerHTML = ("Computer choice: "+ computerChoice + '<br />' +
+                       "Player choice: Paper " + '<br />' + playRound(computerChoice, playerPlay));
+  content.style.textAlign = 'center';    
 });
 
-scissors.addEventListener('click', function(e) {
+scissors.addEventListener('click', function(computerChoice, playerPlay) {
   playerPlay = 'scissors';
-  computerPlay();
-  playRound();  
-  console.log(computerPlay());
-  console.log(playerPlay);
-  console.log(playRound());
+  computerChoice = computerPlay();
+  playRound(computerChoice, playerPlay);
   winner.appendChild(content);
   content.classList.add('content');
-  content.innerHTML = ("Computer choice: "+ computerPlay() + '<br />' +
-                       "Player choice: Scissors " + '<br />' + playRound());
+  content.innerHTML = ("Computer choice: "+ computerChoice + '<br />' +
+                       "Player choice: Scissors " + '<br />' + playRound(computerChoice, playerPlay));
   content.style.textAlign = 'center';    
 });
 
 function playRound(computerPlay, playerPlay) {
+  console.log('player play', playerPlay);
+  console.log('comp play', computerPlay);
   if (computerPlay == playerPlay){
     return "Its a tie!";
   } else if (computerPlay === "rock" && playerPlay === "scissors"){
@@ -83,3 +76,5 @@ function playRound(computerPlay, playerPlay) {
 }
 
 
+  console.log('player play', playerPlay);
+  console.log('comp play', computerChoice);
